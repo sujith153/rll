@@ -1,0 +1,87 @@
+<nav class="navbar navbar-expand-sm bg-info navbar-light">
+    <ul class = "navbar-nav">
+    <li class = "nav-item">
+       <span class="badge  badge-success "> <a href="Admins" routerLinkActive="active" class="nav-link" >Employee List</a></span>
+    </li>
+    <br>
+    <li class = "nav-item">
+        <span class="badge badge-success"> <a href="createemployee" routerLinkActive="active" class="nav-link">Add New Employee</a></span>
+    </li>
+    <li class = "nav-item">
+        <span class="badge badge-success"> <a href="empattendance" routerLinkActive="active" class="nav-link">Attendance List</a></span>
+    </li>
+    <li class = "nav-item">
+        <span class="badge badge-success"> <a href="timesheetlist" routerLinkActive="active" class="nav-link">Timesheet List</a></span>
+    </li>
+    <li class = "nav-item">
+        <span class="badge badge-success"><a href="schedulelist" routerLinkActive="active" class="nav-link" >Schedule List</a></span> 
+    </li>
+    <li class = "nav-item">
+        <span class="badge badge-success"><a href="leavelist" routerLinkActive="active" class="nav-link">Leave List</a></span>
+    </li>
+    <li class = "nav-item">
+        <span class="badge badge-success"> <a href="salarylist" routerLinkActive="active" class="nav-link">Salary List</a></span>
+    </li>
+
+    </ul>
+
+    </nav>    <button class="btn btn-danger" type="submit" (click)="Logout()" style="float: right;">Logout</button>
+
+    
+    <h1 class="text-center" style="align-items: center;"> {{title}} </h1>
+    <div class="container">
+        <router-outlet></router-outlet>
+    
+    </div>
+
+<h2 style="text-align: center; background-color: rgb(200, 232, 119);">Employee List</h2>
+<table class="table table-stripped">
+    <thead>
+        <tr style="background-color: rgb(115, 95, 133);">
+            <th>empId</th>
+            <th>FirstName</th>
+            <th>LastName</th>
+            <th>DOB</th>
+            <th>Gender</th>
+            <th>Street</th>
+            <th>Location</th>
+            <th>City</th>
+            <th>State</th>
+            <th>Pincode</th>
+            <th>Mobno</th>
+            <th>EmailId</th>
+            <th>Designation</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+ <tbody>
+    <tr *ngFor = "let admin of Admins" >
+        <td> {{admin.empId}} </td>
+        <td> {{admin.fName}} </td>
+        <td> {{admin.lName}} </td>
+        <td> {{admin.dob}} </td>
+        <td> {{admin.gender}} </td>
+        <td> {{admin.street}} </td>
+        <td> {{admin.location}} </td>
+        <td> {{admin.city}} </td>
+        <td> {{admin.state}} </td>
+        <td> {{admin.pincode}} </td>
+        <td> {{admin.mobNo}} </td>
+        <td> {{admin.emailId}} </td>
+        <td> {{admin.designation}} </td>
+        <td>
+            <button (click)= "updateEmployee(admin.empId)" class="btn btn-info">Update</button>&nbsp;&nbsp;
+            <button (click)= "deleteEmployee(admin.empId)" class="btn btn-danger" >Delete</button>
+
+        </td>
+        </tr>
+ </tbody>
+</table>
+
+
+    <footer class="footer">
+    <div class = "container">
+    <span>CopyrightⒸ 2022, Group2 RLL@Corporation </span>
+    </div>
+    </footer> 
+
